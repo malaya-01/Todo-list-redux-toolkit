@@ -27,12 +27,14 @@ function Todos() {
 
                             <button
                             onClick={()=> handleEditId(todo.id)}
-                            className='text-white bg-yellow-500 border-0 py-1 px-4 focus:outline-none hover:bg-yellow-600 rounded text-md'
+                            className={`text-white bg-yellow-500 border-0 py-1 px-4 focus:outline-none hover:bg-yellow-600 rounded text-md ${editId !== null && editId !== todo.id? 'opacity-50 hover:bg-none disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none': ''}`} 
+                            disabled={editId !== null && editId !== todo.id}
                             >Update</button>
 
                             <button
                                 onClick={() => dispatch(removeTodo(todo.id))}
-                                className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
+                                className={`text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md ${editId !== null && editId !== todo.id? 'opacity-50 hover:bg-none disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none': ''}`}
+                                disabled={(editId !== null && editId !== todo.id ) || editId === todo.id}
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

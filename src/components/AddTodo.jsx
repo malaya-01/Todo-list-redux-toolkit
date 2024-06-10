@@ -25,7 +25,7 @@ function AddTodo({editId, setEditId}) {
                 text:input
             }))
             setEditId(null);
-        }else{
+        }else if(input !== ''){
             dispatch(addTodo(input))
         }
         setInput('');
